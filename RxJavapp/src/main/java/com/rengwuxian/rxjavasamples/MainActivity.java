@@ -19,9 +19,12 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    @Bind(android.R.id.tabs) TabLayout tabLayout;
-    @Bind(R.id.viewPager) ViewPager viewPager;
-    @Bind(R.id.toolBar) Toolbar toolBar;
+    @Bind(android.R.id.tabs)
+    TabLayout tabLayout;
+    @Bind(R.id.viewPager)
+    ViewPager viewPager;
+    @Bind(R.id.toolBar)
+    Toolbar toolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

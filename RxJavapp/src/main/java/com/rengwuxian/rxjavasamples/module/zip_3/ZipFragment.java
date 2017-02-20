@@ -34,8 +34,10 @@ import rx.functions.Func2;
 import rx.schedulers.Schedulers;
 
 public class ZipFragment extends BaseFragment {
-    @Bind(R.id.gridRv) RecyclerView gridRv;
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
+    @Bind(R.id.gridRv)
+    RecyclerView gridRv;
+    @Bind(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
     ItemListAdapter adapter = new ItemListAdapter();
 
     Observer<List<Item>> observer = new Observer<List<Item>>() {
@@ -60,8 +62,7 @@ public class ZipFragment extends BaseFragment {
     void load() {
         swipeRefreshLayout.setRefreshing(true);
         unsubscribe();
-        subscription = Observable.zip(Network.getGankApi().getBeauties(200, 1).map(GankBeautyResultToItemsMapper.getInstance()),
-                Network.getZhuangbiApi().search("装逼"),
+        subscription = Observable.zip(Network.getGankApi().getBeauties(200, 1).map(GankBeautyResultToItemsMapper.getInstance()), Network.getZhuangbiApi().search("装逼"),
                 new Func2<List<Item>, List<ZhuangbiImage>, List<Item>>() {
                     @Override
                     public List<Item> call(List<Item> gankItems, List<ZhuangbiImage> zhuangbiImages) {

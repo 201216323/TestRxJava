@@ -46,8 +46,11 @@ public class ItemListAdapter extends RecyclerView.Adapter {
     }
 
     static class DebounceViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.imageIv) ImageView imageIv;
-        @Bind(R.id.descriptionTv) TextView descriptionTv;
+        @Bind(R.id.imageIv)
+        ImageView imageIv;
+        @Bind(R.id.descriptionTv)
+        TextView descriptionTv;
+
         public DebounceViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

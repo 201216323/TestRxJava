@@ -34,15 +34,20 @@ import rx.schedulers.Schedulers;
 public class MapFragment extends BaseFragment {
     private int page = 0;
 
-    @Bind(R.id.pageTv) TextView pageTv;
-    @Bind(R.id.previousPageBt) Button previousPageBt;
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout swipeRefreshLayout;
-    @Bind(R.id.gridRv) RecyclerView gridRv;
+    @Bind(R.id.pageTv)
+    TextView pageTv;
+    @Bind(R.id.previousPageBt)
+    Button previousPageBt;
+    @Bind(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
+    @Bind(R.id.gridRv)
+    RecyclerView gridRv;
 
     ItemListAdapter adapter = new ItemListAdapter();
     Observer<List<Item>> observer = new Observer<List<Item>>() {
         @Override
         public void onCompleted() {
+            Toast.makeText(getActivity(), R.string.loading_success, Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -54,7 +59,7 @@ public class MapFragment extends BaseFragment {
         @Override
         public void onNext(List<Item> images) {
             swipeRefreshLayout.setRefreshing(false);
-            pageTv.setText(getString(R.string.page_with_number, page));
+            pageTv.setText(getString(R.string.page_with_number, ""+page));
             adapter.setItems(images);
         }
     };
